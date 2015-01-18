@@ -1,3 +1,4 @@
+import sys
 import requests
 from bottle import route, run
 
@@ -9,4 +10,4 @@ def getfilenumber(file_number):
     d = s.post('http://kcerds.dol-esa.gov/query/getOrgQryResult.do', data={'fileNumber': file_number})
     return d.text
 
-run(host='localhost', port=8080, debug=True)
+run(host='0.0.0.0', port=sys.argv[1], debug=True)
